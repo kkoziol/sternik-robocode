@@ -1,1 +1,9 @@
 language: java
+
+deploy:
+  provider: releases
+  api_key: "${GH_TOKEN}"
+  file: "rudy102_*.jar"
+  skip_cleanup: true
+  on:
+    tags: true
