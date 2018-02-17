@@ -1,5 +1,5 @@
 <project name="robot" default="dist" basedir=".">
-    <property name="version" value="0.102.1"/>
+    <property name="version" value="0.102.2"/>
     <description>
         build file for robocode RUDY 102
     </description>
@@ -20,7 +20,6 @@
             <include name="**/*.jar"/>
         </fileset>
     </path>
-
 
     <target name="compile" depends="init"
             description="compile the source">
