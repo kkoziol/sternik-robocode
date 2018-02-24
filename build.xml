@@ -1,5 +1,5 @@
 <project name="robot" default="dist" basedir=".">
-    <property name="version" value="0.102.3"/>
+    <property name="version" value="0.102.4"/>
     <description>
         build file for robocode RUDY 102
     </description>
@@ -37,10 +37,19 @@
             description="generate the distribution">
         <!-- Create the distribution directory -->
         <mkdir dir="${dist}"/>
-        <copy file="src/pl/sternik/kk/robocode/Rudy102.properties"
+        <filter token="SNAPSHOT" value="${version}"/>
+        <copy file="src/pl/sternik/kk/robocode/Rudy102.properties" filtering="true"
                   todir="out/pl/sternik/kk/robocode" />
+
         <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
-        <jar jarfile="${dist}/rudy102_${version}.jar" basedir="${build}"/>
+        <jar jarfile="${dist}/rudy102_${version}.jar" basedir="${build}">
+            <manifest>
+                <!-- Who is building this jar? -->
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="robots" value="pl.sternik.kk.robocode.Rudy102"/>
+            </manifest>
+
+        </jar>
     </target>
 
     <target name="clean"
