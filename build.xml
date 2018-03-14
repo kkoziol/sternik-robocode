@@ -30,7 +30,7 @@
     </target>
 
     <target name="test" depends="compile">
-        <!-- no tests ;) -->
+        <!-- no tests ;) but it compiles!-->
     </target>
 
     <target name="dist" depends="compile"
